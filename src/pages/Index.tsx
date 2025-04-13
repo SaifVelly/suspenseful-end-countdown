@@ -6,7 +6,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { DateTimePicker } from '@/components/DateTimePicker';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Play, Pause, Clock } from 'lucide-react';
-import Image from '@/components/ui/image';
 
 const Index = () => {
   const { toast } = useToast();
@@ -59,17 +58,21 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-b from-black to-zinc-900">
-      <div className="absolute top-4 left-4 flex space-x-4">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-b from-black to-zinc-900 relative">
+      {/* Logos positioned at the top corners */}
+      <div className="absolute top-6 left-6 md:top-10 md:left-10">
         <img 
           src="/placeholder.svg" 
           alt="Organizer Logo" 
-          className="h-16 w-16 object-contain" 
+          className="h-20 w-20 md:h-28 md:w-28 object-contain" 
         />
+      </div>
+      
+      <div className="absolute top-6 right-6 md:top-10 md:right-10">
         <img 
           src="/favicon.ico" 
           alt="Competition Logo" 
-          className="h-16 w-16 object-contain" 
+          className="h-20 w-20 md:h-28 md:w-28 object-contain" 
         />
       </div>
 
