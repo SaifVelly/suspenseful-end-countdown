@@ -10,6 +10,7 @@ import { Play, Pause, Clock } from 'lucide-react';
 const Index = () => {
   const { toast } = useToast();
   const [targetDate, setTargetDate] = useState<Date>(() => {
+    // Default to 5 minutes from now
     const date = new Date();
     date.setMinutes(date.getMinutes() + 5);
     return date;
@@ -19,6 +20,7 @@ const Index = () => {
   const [showSettings, setShowSettings] = useState(true);
 
   const handleStartCountdown = () => {
+    // Validate that the target date is in the future
     if (targetDate.getTime() <= new Date().getTime()) {
       toast({
         variant: "destructive",
@@ -58,24 +60,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-b from-black to-zinc-900 relative">
-      {/* Logos positioned at the top corners */}
-      <div className="absolute top-6 left-6 md:top-10 md:left-10">
-        <img 
-          src="/a.png" 
-          alt="Organizer Logo" 
-          className="h-20 w-20 md:h-28 md:w-28 object-contain" 
-        />
-      </div>
-      
-      <div className="absolute top-6 right-6 md:top-10 md:right-10">
-        <img 
-          src="/b.png" 
-          alt="Competition Logo" 
-          className="h-20 w-20 md:h-28 md:w-28 object-contain" 
-        />
-      </div>
-
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-b from-black to-zinc-900">
       <div className="w-full max-w-5xl">
         {!isCountdownActive && showSettings ? (
           <Card className="bg-card border-border shadow-xl">
