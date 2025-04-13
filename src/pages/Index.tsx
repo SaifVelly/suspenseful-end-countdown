@@ -62,7 +62,7 @@ const Index = () => {
       {/* Logos positioned at the top corners */}
       <div className="absolute top-6 left-6 md:top-10 md:left-10">
         <img 
-          src="/placeholder.svg" 
+          src="/a.png" 
           alt="Organizer Logo" 
           className="h-20 w-20 md:h-28 md:w-28 object-contain" 
         />
@@ -70,7 +70,7 @@ const Index = () => {
       
       <div className="absolute top-6 right-6 md:top-10 md:right-10">
         <img 
-          src="/favicon.ico" 
+          src="/b.png" 
           alt="Competition Logo" 
           className="h-20 w-20 md:h-28 md:w-28 object-contain" 
         />
