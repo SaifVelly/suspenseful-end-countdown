@@ -6,11 +6,11 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { DateTimePicker } from '@/components/DateTimePicker';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Play, Pause, Clock } from 'lucide-react';
+import Image from '@/components/ui/image';
 
 const Index = () => {
   const { toast } = useToast();
   const [targetDate, setTargetDate] = useState<Date>(() => {
-    // Default to 5 minutes from now
     const date = new Date();
     date.setMinutes(date.getMinutes() + 5);
     return date;
@@ -20,7 +20,6 @@ const Index = () => {
   const [showSettings, setShowSettings] = useState(true);
 
   const handleStartCountdown = () => {
-    // Validate that the target date is in the future
     if (targetDate.getTime() <= new Date().getTime()) {
       toast({
         variant: "destructive",
@@ -61,6 +60,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-b from-black to-zinc-900">
+      <div className="absolute top-4 left-4 flex space-x-4">
+        <img 
+          src="/placeholder.svg" 
+          alt="Organizer Logo" 
+          className="h-16 w-16 object-contain" 
+        />
+        <img 
+          src="/favicon.ico" 
+          alt="Competition Logo" 
+          className="h-16 w-16 object-contain" 
+        />
+      </div>
+
       <div className="w-full max-w-5xl">
         {!isCountdownActive && showSettings ? (
           <Card className="bg-card border-border shadow-xl">
